@@ -26,6 +26,18 @@ public static class SeedData
             quizItemRepo?.Add(item3);
             Quiz quiz = new(id: 1, title: "Matematyka", items: [item1, item2, item3]);
             quizRepo?.Add(quiz);
+            
+            QuizItem item4 = new QuizItem(id: 4, question: "What is the capital of France?", correctAnswer: "Paris", incorrectAnswers:
+                ["London", "Berlin", "Madrid"]);
+            QuizItem item5 = new QuizItem(id: 5, question: "What is 3 squared?", correctAnswer: "9", incorrectAnswers:
+                ["6", "12", "15"]);
+            QuizItem item6 = new QuizItem(id: 6, question: "What is the largest planet?", correctAnswer: "Jupiter", incorrectAnswers:
+                ["Saturn", "Earth", "Mars"]);
+            quizItemRepo?.Add(item4);
+            quizItemRepo?.Add(item5);
+            quizItemRepo?.Add(item6);
+            Quiz quiz2 = new Quiz(id: 2, title: "General Knowledge", items: [item4, item5, item6]);
+            quizRepo?.Add(quiz2);
         }
     }
 }
