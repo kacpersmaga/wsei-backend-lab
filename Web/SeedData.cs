@@ -19,8 +19,8 @@ public static class SeedData
             //TODO Dodaj Quiz do quizRepo
             
             QuizItem item1 = new QuizItem(id:1, question: "2+4", correctAnswer: "6", incorrectAnswers: ["5","7", "8"]);
-            QuizItem item2 = new QuizItem(id:1, question: "2*4", correctAnswer: "8", incorrectAnswers: ["4","6", "9"]);
-            QuizItem item3 = new QuizItem(id:1, question: "8/2", correctAnswer: "4", incorrectAnswers: ["5","7", "8"]);
+            QuizItem item2 = new QuizItem(id:2, question: "2*4", correctAnswer: "8", incorrectAnswers: ["4","6", "9"]);
+            QuizItem item3 = new QuizItem(id:3, question: "8/2", correctAnswer: "4", incorrectAnswers: ["5","7", "8"]);
             quizItemRepo?.Add(item1);
             quizItemRepo?.Add(item2);
             quizItemRepo?.Add(item3);
