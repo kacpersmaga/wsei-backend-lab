@@ -1,8 +1,9 @@
-﻿@page "{quizId}/{itemId}"
-@model BackendLab01.Pages.Summary
+﻿@page "{quizId}"
+@model BackendLab01.Pages.SummaryModel
 @{
-    ViewData["Title"] = "summary";
+    ViewData["Title"] = "Summary";
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<H3>@ViewData["Title"]</H3>
+<h1>Summary</h1>
+<p>You answered @Model.CorrectAnswers questions correctly.</p>
