@@ -1,4 +1,5 @@
 ﻿using ApplicationCore.Commons.Repository;
+using ApplicationCore.Models;
 using ApplicationCore.Models.QuizAggregate;
 using BackendLab01;
 
@@ -27,11 +28,11 @@ public static class SeedData
             Quiz quiz = new(id: 1, title: "Matematyka", items: [item1, item2, item3]);
             quizRepo?.Add(quiz);
             
-            QuizItem item4 = new QuizItem(id: 4, question: "What is the capital of France?", correctAnswer: "Paris", incorrectAnswers:
+            QuizItem item4 = new QuizItem(id: 1, question: "What is the capital of France?", correctAnswer: "Paris", incorrectAnswers:
                 ["London", "Berlin", "Madrid"]);
-            QuizItem item5 = new QuizItem(id: 5, question: "What is 3 squared?", correctAnswer: "9", incorrectAnswers:
+            QuizItem item5 = new QuizItem(id: 2, question: "What is 3 squared?", correctAnswer: "9", incorrectAnswers:
                 ["6", "12", "15"]);
-            QuizItem item6 = new QuizItem(id: 6, question: "What is the largest planet?", correctAnswer: "Jupiter", incorrectAnswers:
+            QuizItem item6 = new QuizItem(id: 3, question: "What is the largest planet?", correctAnswer: "Jupiter", incorrectAnswers:
                 ["Saturn", "Earth", "Mars"]);
             quizItemRepo?.Add(item4);
             quizItemRepo?.Add(item5);
