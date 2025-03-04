@@ -1,8 +1,10 @@
 using BlazorChat.Components;
+using BlazorChat.Components.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddSignalR();  
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
@@ -24,5 +26,6 @@ app.UseAntiforgery();
 app.MapStaticAssets();
 app.MapRazorComponents<App>()
     .AddInteractiveServerRenderMode();
+app.MapHub<BlazorChatHub>(BlazorChatHub.HubUrl);
 
 app.Run();
