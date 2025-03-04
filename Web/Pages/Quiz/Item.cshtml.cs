@@ -34,7 +34,7 @@ namespace BackendLab01.Pages
             QuizId = quizId;
             ItemId = itemId;
             var quiz = _userService.FindQuizById(quizId);
-            var quizItem = quiz?.Items[itemId - 1];
+            var quizItem = quiz.Items.ElementAtOrDefault(ItemId - 1);
             Question = quizItem?.Question;
             Answers = new List<string>();
             if (quizItem is not null)
@@ -50,7 +50,8 @@ namespace BackendLab01.Pages
 
             var quiz = _userService.FindQuizById(QuizId);
             
-            _userService.SaveUserAnswerForQuiz(QuizId, userId, ItemId, UserAnswer);
+            var quizItem = quiz.Items.ElementAtOrDefault(ItemId - 1);
+            _userService.SaveUserAnswerForQuiz(QuizId, userId, quizItem!.Id, UserAnswer);
 
             if (ItemId < quiz?.Items.Count)
             {
