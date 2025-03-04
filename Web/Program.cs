@@ -14,6 +14,8 @@ builder.Services.AddSingleton<IGenericRepository<QuizItem, int>, MemoryGenericRe
 builder.Services.AddSingleton<IGenericRepository<QuizItemUserAnswer, string>, MemoryGenericRepository<QuizItemUserAnswer, string>>();
 builder.Services.AddSingleton<IQuizAdminService, QuizAdminService>();
 builder.Services.AddSingleton<IQuizUserService, QuizUserService>();
+builder.Services.AddTransient<IGenericGenerator<int>, IntGenerator>();
+
 
 var app = builder.Build();
 
