@@ -104,6 +104,7 @@ else
                 .Build();
 
             _hubConnection.On<string, string>("Broadcast", BroadcastMessage);
+            _hubConnection.On<string, string>("Private", PrivateMessage);
 
             await _hubConnection.StartAsync();
 
@@ -124,6 +125,12 @@ else
         _messages.Add(new Message(name, message, isMine));
 
         // Inform blazor the UI needs updating
+        InvokeAsync(StateHasChanged);
+    }
+    
+    private void PrivateMessage(string name, string message)
+    {
+        _messages.Add(new Message(name, $"[Private]: {message}", false));
         InvokeAsync(StateHasChanged);
     }
 

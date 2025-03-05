@@ -10,6 +10,11 @@ public class BlazorChatHub : Hub
     {
         await Clients.All.SendAsync("Broadcast", username, message);
     }
+    
+    public async Task Private(string from, string to, string message)
+    {
+        await Clients.Client(to).SendAsync("Private", from, message);
+    }
 
     public override Task OnConnectedAsync()
     {
@@ -23,8 +28,5 @@ public class BlazorChatHub : Hub
         await base.OnDisconnectedAsync(e);
     }
     
-    public async Task Private(string from, string to, string message)
-    {
-        await Clients.Client(to).SendAsync("Private", from, message);
-    }
+
 }
