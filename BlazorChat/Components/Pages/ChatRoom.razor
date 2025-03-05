@@ -138,6 +138,8 @@ else
 
             _hubConnection = null;
             _isChatting = false;
+            
+            ChatUserService.RemoveByName(_username);
         }
     }
 
