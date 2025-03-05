@@ -164,7 +164,18 @@ else
     {
         if (_isChatting && !string.IsNullOrWhiteSpace(message))
         {
-            await _hubConnection.SendAsync("Broadcast", _username, message);
+            if (_to == "All")
+            {
+                await _hubConnection.SendAsync("Broadcast", _username, message);
+            }
+            else
+            {
+                string connectionId = ChatUserService.GetConnectionIdByName(_to);
+                if (!string.IsNullOrEmpty(connectionId))
+                {
+                    await _hubConnection.SendAsync("Private", _username, connectionId, message);
+                }
+            }
 
             _newMessage = string.Empty;
         }
