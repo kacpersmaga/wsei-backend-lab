@@ -1,8 +1,12 @@
 ﻿@page "/chatroom"
 @inject NavigationManager navigationManager
+@inject IChatUserService ChatUserService
+@using ApplicationCore.Interfaces.UserService
 @using BlazorChat.Components.Hubs
 @using Microsoft.AspNetCore.SignalR.Client;
 @rendermode InteractiveServer
+
+
 
 <h1>Blazor SignalR Chat Sample</h1>
 <hr />
