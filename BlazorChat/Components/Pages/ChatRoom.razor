@@ -54,6 +54,13 @@ else
         <hr />
         <textarea class="input-lg" placeholder="enter your comment" @bind="@_newMessage"></textarea>
         <button class="btn btn-default" @onclick="@(() => SendAsync(_newMessage))">Send</button>
+        <select class="form-select" @bind="@_to">
+            <option value="All">All</option>
+            @foreach (var user in ChatUserService.GetAll().Where(u => u.Username != _username))
+            {
+                <option value="@user.Username">@user.Username</option>
+            }
+        </select>
     </div>
 }
 
@@ -69,6 +76,9 @@ else
 
     // new message input
     private string _newMessage;
+    
+    // recipient for private messages
+    private string _to;
 
     // list of messages in chat
     private List<Message> _messages = new List<Message>();
