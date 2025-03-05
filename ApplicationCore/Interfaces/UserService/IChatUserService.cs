@@ -1,4 +1,4 @@
-﻿namespace BackendLab01;
+﻿namespace ApplicationCore.Interfaces.UserService;
 
 public interface IChatUserService
 {
