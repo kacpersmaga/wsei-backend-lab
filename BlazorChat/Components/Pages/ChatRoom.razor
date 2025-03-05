@@ -108,6 +108,7 @@ else
             await _hubConnection.StartAsync();
 
             await SendAsync($"[Notice] {_username} joined chat room.");
+            ChatUserService.Add(_hubConnection.ConnectionId, _username);
         }
         catch (Exception e)
         {
