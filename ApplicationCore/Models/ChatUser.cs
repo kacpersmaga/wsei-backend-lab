@@ -2,5 +2,5 @@
 
 public class ChatUser : User
 {
-    public string? ConnectionId { get; set; }
+    public string ConnectionId { get; set; }
 }
